@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Form() {
   return (
-    <div className=" flex justify-center items-center w-[73vw] h-screen border-2">
+    <div className=" flex justify-center items-center w-screen h-screen border-2">
       <div>
         <form class="w-[50vw] bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <div class="mb-4">
