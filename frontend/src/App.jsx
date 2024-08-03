@@ -2,8 +2,8 @@ import React from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import Chatbot from "./pages/Chatbot";
 import Chat from "./pages/Chat";
+import SignUp from "./pages/SignUp";
 
 export default function App() {
   return (
@@ -11,6 +11,7 @@ export default function App() {
       <NavBar />
       <Routes>
         <Route path="/chatbot" element={<Chat />}></Route>
+        <Route path="/signup" element={<SignUp />}></Route>
       </Routes>
     </div>
   );
