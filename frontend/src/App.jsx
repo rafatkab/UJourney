@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import Chat from "./pages/Chat";
 import SignUp from "./pages/SignUp";
 import Form from "./pages/Form";
+import Timeline from "./pages/Timeline";
 
 export default function App() {
   return (
