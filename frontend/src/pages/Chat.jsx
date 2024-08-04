@@ -8,13 +8,13 @@ import {
   MessageList,
   TypingIndicator,
 } from "@chatscope/chat-ui-kit-react";
+import { useAuth0 } from "@auth0/auth0-react";
 
-const firstPrompt =
-  'Prompt: Create a conversational AI assistant designed to gather essential user information for career planning purposes. The assistant should follow a structured question-answer format, collecting data on the following: Basic Information: Name, degree, university, and start year of the program. Educational Goals: Expected graduation year, desired field of study or specialization. Career Aspirations: Target company based on the degree, desired job role within the target company. Extracurricular Involvement: Participation in clubs, associations, or hackathons. Professional Experience: Most recent job experience. The assistant should limit the number of questions to eight and provide relevant options or suggestions where applicable. Upon completion of the question-answer sequence, the assistant should generate END_RESULT a JSON output containing the collected user data in the following format: JSON { "name": "", "education": { "university": "", "major": "", "year": "", "graduationYear": "" }, "careerGoals": { "targetCompany": "", "targetRole": "" } } Additional Considerations: The assistant should be designed to handle potential user errors or unexpected responses gracefully. The assistant should strive to maintain a conversational and engaging tone throughout the interaction. Consider incorporating error handling mechanisms to validate user input and provide appropriate feedback. Explore opportunities for expanding the JSON output to include additional data points as needed. Start with the first question Only.';
 // const firstPrompt = 'Prompt - CONVERSATIONAL WAY To Get User’s Details: Create a conversational prompt sequence to collect the following user information: Basic Information: Name, degree, university, start year of program Educational Goals: Expected graduation year (infer if possible based on other information), desired field of study or specialization Career Aspirations: Target company (provide relevant options based on degree), desired job role within the target company (provide relevant options based on company) Extracurricular Involvement: Clubs, associations, or hackathons Professional Experience: Most recent job experience IMPORTANT: DO NOT ASK FOR MORE THAN 10 QUESTIONS . REALLY MPORTANT: "ASK QUESTIONS 1 by 1 to users"". END RESULT RESPONSE SHOULD START WITH END_RESULT TEXT. END RESULT: RETURN DATA IN JSON FORMAT AT THE END. JSON format: { "name": "", "education": { "university": "", "major": "", "year": "", "graduationYear": }, "careerGoals": { "targetCompanyType": "", "targetRole": "" } }.';
 
 export default function Chat() {
   const [typing, setTyping] = useState(false);
+  const [user] = useAuth0();
 
   const [messages, setMessages] = useState([
     {
@@ -23,6 +23,9 @@ export default function Chat() {
       direction: 0,
     },
   ]);
+
+  const firstPrompt =
+  'Prompt: Greet the student with their name = '+user.name;
 
   const handleSubmit = async (currentMessage) => {
     const prevMessages = messages.map((msg) => msg.message).join(", ");
