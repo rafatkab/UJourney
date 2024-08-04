@@ -14,7 +14,7 @@ export default function NavBar() {
   };
 
   return (
-    <div className='flex'>
+    <div className='flex fixed top-0'>
       <aside
         className={`h-screen bg-black text-white flex flex-col justify-between font-body duration-300 ${
           isOpen ? 'w-[20vw]' : 'w-[5vw]'
