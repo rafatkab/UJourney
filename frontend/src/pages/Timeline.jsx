@@ -8,15 +8,15 @@ export default function Timeline() {
     const actions = item.actions;
     const formattedActions = actions
       .map((action, index) => {
-        return `Action ${index + 1}:\n  - Action: ${index + 1}\n  - Deadline: ${
-          action.deadline
-        }\n  - Details: ${action.details}`;
+        return `Action ${index + 1}:\n  - Action: ${index + 1}\n - Action: ${
+          action.action
+        }\n  - Deadline: ${action.deadline}\n  - Details: ${action.details}`;
       })
       .join("\n\n");
     return {
       title: item.semester,
       cardTitle: "Actions to take",
-      url: "http://www.history.com",
+      url: item.imageUrl,
       cardDetailedText: formattedActions,
       media: {
         type: "IMAGE",

@@ -47,9 +47,9 @@ Timeline: Provide a list of steps to achieve the dream job, organized by semeste
 Action: What the student should do (e.g., join a club, take a course, apply for an internship).
 Deadline: When the action should be completed.
 Details: Additional information or resources related to the action.
-Recommendations: Offer additional advice, which may include:
+Include these points in the timeline
 
-Clubs: University clubs that align with the student's career goals.
+Clubs: University clubs at that student's university that align with the student's career goals.
 Courses: Relevant courses to take.
 Events: Conferences, workshops, or networking events to attend.
 Internships/Jobs: Types of internships or job experiences to pursue.
@@ -114,6 +114,9 @@ sample json formot:
 }
 
 Give this in raw json format. nothing else. IMPORTANT: Start the answer with '{' instead of \`\`\`
+Also add a url to a picture pertaining to the theme at each semester item. 
+Do not make anything up, and give actual club reccomendations at the student's university
+Also, go all the way up to the students graduation year.
 `,
     };
 
