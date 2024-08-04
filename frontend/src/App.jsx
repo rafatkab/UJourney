@@ -1,10 +1,7 @@
-import React from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Chat from './pages/Chat';
-import SignUp from './pages/SignUp';
-import LogIn from './pages/LogIn';
 import Logout from './pages/Logout';
 
 import Form from './pages/Form';
