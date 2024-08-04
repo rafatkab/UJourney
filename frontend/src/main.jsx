@@ -6,10 +6,10 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Auth0Provider
-    domain="dev-kb7ckgsswgfzkrlz.ca.auth0.com"
-    clientId="2YeCsuU7nOX6TAFPdrrd1d9Z0Cpca0UC"
+    domain={process.env.VITE_AUTH0_DOMAIN}
+    clientId={process.env.VITE_AUTH0_CLIENT_ID}
     authorizationParams={{
-      redirect_uri: window.location.origin
+      redirect_uri: window.location.origin,
     }}
   >
     <BrowserRouter>
