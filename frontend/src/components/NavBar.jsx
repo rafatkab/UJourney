@@ -1,130 +1,144 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import LogoutButton from "../pages/Logout";
-import { FaWpforms, FaBars } from "react-icons/fa";
-import { CiChat2 } from "react-icons/ci";
-import { IoHomeOutline } from "react-icons/io5";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FaWpforms, FaBars } from 'react-icons/fa';
+import { CiChat2 } from 'react-icons/ci';
+import { IoHomeOutline } from 'react-icons/io5';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(true);
+  const { user, logout, isAuthenticated } = useAuth0();
 
   const toggleNavBar = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <div className="flex">
+    <div className='flex'>
       <aside
-        className={`h-screen bg-gray-800 text-white flex flex-col justify-between font-body duration-300 ${
-          isOpen ? "w-[20vw]" : "w-[5vw]"
+        className={`h-screen bg-black text-white flex flex-col justify-between font-body duration-300 ${
+          isOpen ? 'w-[20vw]' : 'w-[5vw]'
         }`}
       >
-        <div className={`flex flex-col items-center [&>*]:mt-3`}>
+        <div
+          className={`flex flex-col items-center justify-space-between [&>*]:mt-3`}
+        >
           <div
             className={`${
-              isOpen ? "flex flex-row justify-between w-[20vw]" : null
+              isOpen ? 'flex flex-row justify-end p-4 w-[20vw]' : null
             }`}
           >
-            {isOpen ? (
-              <svg
-                className="ml-7"
-                xmlns="http://www.w3.org/2000/svg"
-                height="40"
-                fill="none"
-                viewBox="0 0 82 40"
-              >
-                <path
-                  fill="#FFD43D"
-                  d="M73.365 19.71c0 2.904-2.241 5.31-5.27 5.31-3.03 0-5.228-2.406-5.228-5.31 0-2.905 2.199-5.312 5.228-5.312s5.27 2.407 5.27 5.311Z"
-                ></path>
-                <path
-                  fill="#FF0C81"
-                  d="M48.764 19.544c0 2.946-2.323 5.145-5.27 5.145-2.904 0-5.227-2.2-5.227-5.145 0-2.947 2.323-5.104 5.228-5.104 2.946 0 5.27 2.158 5.27 5.104Z"
-                ></path>
-                <path
-                  fill="#11EEFC"
-                  d="M20.074 25.02c3.029 0 5.27-2.406 5.27-5.31 0-2.905-2.241-5.312-5.27-5.312-3.03 0-5.228 2.407-5.228 5.311 0 2.905 2.199 5.312 5.228 5.312Z"
-                ></path>
-                <path
-                  fill="#171A26"
-                  d="M68.095 30.54c-6.307 0-11.12-4.897-11.12-10.872 0-5.934 4.855-10.83 11.12-10.83 6.349 0 11.162 4.938 11.162 10.83 0 5.975-4.855 10.871-11.162 10.871Zm0-5.52c3.03 0 5.27-2.406 5.27-5.31 0-2.905-2.24-5.312-5.27-5.312-3.029 0-5.228 2.407-5.228 5.311 0 2.905 2.199 5.312 5.228 5.312ZM43.08 40c-4.813 0-8.506-2.116-10.373-5.934l4.896-2.655c.913 1.784 2.614 3.195 5.394 3.195 3.486 0 5.85-2.448 5.85-6.473v-.374c-1.12 1.411-3.111 2.49-6.016 2.49-5.768 0-10.373-4.481-10.373-10.581 0-5.934 4.813-10.788 11.12-10.788 6.431 0 11.162 4.605 11.162 10.788v8.299C54.74 35.27 49.76 40 43.08 40Zm.415-15.311c2.946 0 5.27-2.2 5.27-5.145 0-2.947-2.324-5.104-5.27-5.104-2.905 0-5.228 2.158-5.228 5.104s2.323 5.145 5.228 5.145ZM20.074 30.54c-6.307 0-11.12-4.897-11.12-10.872 0-5.934 4.854-10.83 11.12-10.83 6.348 0 11.162 4.938 11.162 10.83 0 5.975-4.855 10.871-11.162 10.871Zm0-5.52c3.029 0 5.27-2.406 5.27-5.31 0-2.905-2.241-5.312-5.27-5.312-3.03 0-5.228 2.407-5.228 5.311 0 2.905 2.199 5.312 5.228 5.312ZM0 0h5.892v30H0V0ZM82 6.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"
-                ></path>
-              </svg>
-            ) : null}
             <button
               onClick={toggleNavBar}
-              className={`${isOpen ? "mr-4" : "mt-3"} text-xl duration-300`}
+              className={`${isOpen ? 'mr-4' : 'mt-3'} text-3xl duration-300`}
             >
               <FaBars />
             </button>
           </div>
           {isOpen && (
             <>
-              <Link
-                className="w-[250px] flex items-center hover:bg-gray-600 rounded-md p-3 text-xl"
-                to="/home"
-              >
-                <IoHomeOutline />
-                <div className="ml-3">Home</div>
-              </Link>
-              <Link
-                className="w-[250px] flex items-center hover:bg-gray-600 rounded-md p-3 text-xl"
-                to="/chatbot"
-              >
-                <CiChat2 />
-                <div className="ml-3">Chatbot</div>
-              </Link>
-              <Link
-                className="w-[250px] flex items-center hover:bg-gray-600 rounded-md p-3 text-xl"
-                to="/form"
-              >
-                <FaWpforms />
-                <div className="ml-3">Form</div>
-              </Link>
+              <img className='ml-7 w-28' src='./white-logo.png' alt='logo' />
+              <div className='flex flex-col justify-center items-center text-2xl space-y-2'>
+                <Link
+                  className='w-[250px] flex justify-center items-center hover:bg-gray-600 rounded-md p-3'
+                  to='/home'
+                >
+                  <IoHomeOutline />
+                  <div className='ml-3'>Home</div>
+                </Link>
+                <Link
+                  className='w-[250px] flex justify-center items-center hover:bg-gray-600 rounded-md p-3'
+                  to='/form'
+                >
+                  <FaWpforms />
+                  <div className='ml-3'>Form</div>
+                </Link>
+                <Link
+                  className='w-[250px] flex justify-center items-center hover:bg-gray-600 rounded-md p-3'
+                  to='/chatbot'
+                >
+                  <CiChat2 />
+                  <div className='ml-3'>Chatbot</div>
+                </Link>
+                
+              </div>
             </>
           )}
           {!isOpen && (
-            <div className="flex flex-col">
+            <div className='flex flex-col'>
               <Link
-                className="flex items-center hover:bg-gray-600 rounded-md p-3 text-xl"
-                to="/home"
+                className='flex items-center hover:bg-gray-600 rounded-md p-3 text-xl'
+                to='/home'
               >
                 <IoHomeOutline />
               </Link>
               <Link
-                className=" flex items-center hover:bg-gray-600 rounded-md p-3 text-xl"
-                to="/chatbot"
-              >
-                <CiChat2 />
-              </Link>
-              <Link
-                className="flex items-center hover:bg-gray-600 rounded-md p-3 text-xl"
-                to="/form"
+                className='flex items-center hover:bg-gray-600 rounded-md p-3 text-xl'
+                to='/form'
               >
                 <FaWpforms />
+              </Link>
+              <Link
+                className=' flex items-center hover:bg-gray-600 rounded-md p-3 text-xl'
+                to='/chatbot'
+              >
+                <CiChat2 />
               </Link>
             </div>
           )}
         </div>
-        {isOpen && (
-          <div className="flex justify-center">
-            <Link to="/signup">
-              <button
-                type="button"
-                className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-xl px-5 py-2.5 text-center me-2 mb-2"
-              >
-                Sign Up
-              </button>
-            </Link>
-            <Link to="/login">
-              <button
-                type="button"
-                className="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-xl px-5 py-2.5 text-center me-2 mb-2"
-              >
-                Log In
-              </button>
-            </Link>
+        {isAuthenticated ? (
+          <div
+            className={`flex flex-col w-full relative justify-center p-4 space-y-4`}
+          >
+            <div className='relative w-full flex flex-row justify-around items-center'>
+              <div className='relative w-14 h-14 rounded-full overflow-hidden border-white border-2 flex justify-center items-center'>
+                <img className='w-auto' src={user.picture} alt='logo' />
+              </div>
+              {isOpen && (
+                <p className='text-white text-md relative'>{user.name}</p>
+              )}
+            </div>
+
+            <button
+              type='button'
+              onClick={() =>
+                logout({ logoutParams: { returnTo: window.location.origin } })
+              }
+              className='text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-xl px-5 py-2.5 text-center me-2 mb-2'
+            >
+              {isOpen && 'Log Out'}
+              {!isOpen && (
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke='currentColor'
+                  className='w-6 h-6'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='2'
+                    d='M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1'
+                  />
+                </svg>
+              )}
+            </button>
           </div>
+        ) : (
+          isOpen && (
+            <div className='flex justify-center'>
+              <Link to='/login'>
+                <button
+                  type='button'
+                  className='text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-xl px-5 py-2.5 text-center me-2 mb-2'
+                >
+                  Log In
+                </button>
+              </Link>
+            </div>
+          )
         )}
       </aside>
     </div>

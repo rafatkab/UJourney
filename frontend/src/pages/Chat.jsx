@@ -91,9 +91,9 @@ export default function Chat() {
   // };
 
   return (
-    <div className="chat-container">
-      <div className="w-screen h-screen">
-        <MainContainer>
+    <div className="chat-container relative w-full flex justify-center items-center p-4">
+      <div className="relative w-full h-full">
+        <MainContainer className="relative w-full h-full rounded-xl p-4">
           <ChatContainer>
             <MessageList
               typingIndicator={
@@ -105,6 +105,7 @@ export default function Chat() {
               ))}
             </MessageList>
             <MessageInput
+            fancyScroll={true}
               placeholder="Type message here"
               onSend={handleSubmit}
             />
