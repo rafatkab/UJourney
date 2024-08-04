@@ -9,6 +9,10 @@ import Logout from "./pages/Logout";
 import LogoutButton from "./pages/Logout";
 import LoginButton from "./pages/LogIn";
 
+import Form from "./pages/Form";
+import Timeline from "./pages/Timeline";
+
+
 export default function App() {
   return (
     <div className="flex flex-row">
@@ -17,6 +21,7 @@ export default function App() {
         <Route path="/logout" element={<LogoutButton />}></Route> 
         <Route path="/login" element={<LoginButton />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
+        <Route path="/form" element={<Form />}></Route>
       </Routes>
     </div>
   );
