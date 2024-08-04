@@ -128,7 +128,7 @@ Give this in raw json format. nothing else. IMPORTANT: Start the answer with '{'
   }
 
   return (
-    <div className='flex justify-center items-center w-full h-full border-2 overflow-y-scroll'>
+    <div className='flex justify-center items-center w-full h-full border-2 pt-8 overflow-y-scroll'>
       <div>
         <form
           onSubmit={handleSubmit}
