@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import LogoutButton from "../pages/Logout";
 import { FaWpforms, FaBars } from "react-icons/fa";
 import { CiChat2 } from "react-icons/ci";
 import { IoHomeOutline } from "react-icons/io5";
