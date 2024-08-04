@@ -14,7 +14,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Chat() {
   const [typing, setTyping] = useState(false);
-  const [user] = useAuth0();
+  const { user } = useAuth0();
 
   const [messages, setMessages] = useState([
     {
