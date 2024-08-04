@@ -92,7 +92,7 @@ export default function Chat() {
 
   return (
     <div className="chat-container">
-      <div style={{ position: "relative", height: "800px", width: "500px" }}>
+      <div className="w-screen h-screen">
         <MainContainer>
           <ChatContainer>
             <MessageList
