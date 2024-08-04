@@ -12,13 +12,15 @@ import LoginButton from "./pages/LogIn";
 import Form from "./pages/Form";
 import Timeline from "./pages/Timeline";
 
+import Home from "./pages/Home";
 
 export default function App() {
   return (
     <div className="flex flex-row">
       <NavBar />
       <Routes>
-        <Route path="/logout" element={<LogoutButton />}></Route> 
+        <Route path="/chatbot" element={<Chat />}></Route>
+        <Route path="/logout" element={<LogoutButton />}></Route>
         <Route path="/login" element={<LoginButton />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/form" element={<Form />}></Route>
