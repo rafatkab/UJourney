@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function Form() {
   const [university, setUniversity] = useState();
@@ -25,7 +25,7 @@ Create a personalized career path for a university student based on the followin
 
 Student Information:
 
-Name: Rafat
+Name: ${name}
 Degree: ${program}
 University: ${university}
 Year of Education: ${currentYear}
@@ -121,160 +121,160 @@ Also, go all the way up to the students graduation year.
     };
 
     try {
-      const res = await axios.post("http://localhost:3000/chat", data);
-      localStorage.setItem("data", res.data.response);
-      navigate("/timeline");
+      const res = await axios.post('http://localhost:3000/chat', data);
+      localStorage.setItem('data', res.data.response);
+      navigate('/timeline');
       console.log(res.data.response);
     } catch (error) {
-      console.error("Error posting data:", error);
+      console.error('Error posting data:', error);
     }
   }
 
   return (
-    <div className=" flex justify-center items-center w-screen h-screen border-2">
+    <div className='flex justify-center items-center w-full h-full border-2 pt-8 overflow-y-scroll'>
       <div>
         <form
           onSubmit={handleSubmit}
-          className="w-[50vw] bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          className='w-[100%] bg-white shadow-md rounded px-8 pt-6 pb-8'
         >
-          <div className="mb-6">
+          <div className='mb-6'>
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              for="password"
+              className='block text-gray-700 text-sm font-bold mb-2'
+              htmlFor='password'
             >
               University
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="username"
-              type="text"
-              placeholder="University"
+              className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+              id='username'
+              type='text'
+              placeholder='University'
               onChange={(e) => setUniversity(e.target.value)}
             />
           </div>
-          <div className="mb-6">
+          <div className='mb-6'>
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              for="password"
+              className='block text-gray-700 text-sm font-bold mb-2'
+              htmlFor='password'
             >
               Program
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="username"
-              type="text"
-              placeholder="Program"
+              className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+              id='username'
+              type='text'
+              placeholder='Program'
               onChange={(e) => setProgram(e.target.value)}
             />
           </div>
-          <div className="mb-6">
+          <div className='mb-6'>
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              for="password"
+              className='block text-gray-700 text-sm font-bold mb-2'
+              htmlFor='password'
             >
               Current Year
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="username"
-              type="text"
-              placeholder="Current Year"
+              className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+              id='username'
+              type='text'
+              placeholder='Current Year'
               onChange={(e) => setCurrentYear(e.target.value)}
             />
           </div>
-          <div className="mb-6">
+          <div className='mb-6'>
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              for="password"
+              className='block text-gray-700 text-sm font-bold mb-2'
+              htmlFor='password'
             >
               Expected Graduation Date
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="username"
-              type="text"
-              placeholder="Expected Graduation Date"
+              className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+              id='username'
+              type='text'
+              placeholder='Expected Graduation Date'
               onChange={(e) => setExpected(e.target.value)}
             />
           </div>
-          <div className="mb-6">
+          <div className='mb-6'>
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              for="password"
+              className='block text-gray-700 text-sm font-bold mb-2'
+              htmlFor='password'
             >
               Most Recent Job Experience
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="username"
-              type="text"
-              placeholder="Most Recent Job Experience"
+              className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+              id='username'
+              type='text'
+              placeholder='Most Recent Job Experience'
               onChange={(e) => setExperience(e.target.value)}
             />
           </div>
-          <div className="mb-6">
+          <div className='mb-6'>
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              for="password"
+              className='block text-gray-700 text-sm font-bold mb-2'
+              htmlFor='password'
             >
               Skills
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="username"
-              type="text"
-              placeholder="Skills"
+              className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+              id='username'
+              type='text'
+              placeholder='Skills'
               onChange={(e) => setSkills(e.target.value)}
             />
           </div>
-          <div className="mb-6">
+          <div className='mb-6'>
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              for="password"
+              className='block text-gray-700 text-sm font-bold mb-2'
+              htmlFor='password'
             >
               Extra-Curriculars
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="username"
-              type="text"
-              placeholder="Extra-Curriculars"
+              className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+              id='username'
+              type='text'
+              placeholder='Extra-Curriculars'
               onChange={(e) => setClubs(e.target.value)}
             />
           </div>
-          <div className="mb-4">
+          <div className='mb-4'>
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              for="username"
+              className='block text-gray-700 text-sm font-bold mb-2'
+              htmlFor='username'
             >
               Company that you are striving for
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="username"
-              type="text"
-              placeholder="Company that you are striving for"
+              className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+              id='username'
+              type='text'
+              placeholder='Company that you are striving for'
               onChange={(e) => setCompany(e.target.value)}
             />
           </div>
-          <div className="mb-6">
+          <div className='mb-6'>
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              for="password"
+              className='block text-gray-700 text-sm font-bold mb-2'
+              htmlFor='password'
             >
               Position
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="username"
-              type="text"
-              placeholder="Position"
+              className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+              id='username'
+              type='text'
+              placeholder='Position'
               onChange={(e) => setPosition(e.target.value)}
             />
           </div>
           <button
-            type="submit"
-            className="w-[45vw] text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900"
+            type='submit'
+            className='w-[45vw] text-black bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900'
           >
             Generate Timeline
           </button>
